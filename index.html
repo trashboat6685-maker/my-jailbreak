@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الجيلبريك الخاصة - PS4 Host</title>
+    <style>
+        /* إعدادات الخلفية العامة */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            /* استبدل bg.png باسم الصورة التي قمت برفعها إذا أردت تطابق الاسم */
+            background: url('bg.png') no-repeat center center fixed;
+            background-size: contain;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* الحاوية الشفافة مثل الصورة المطلوبة */
+        .host-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 25px;
+            width: 50%;
+            max-width: 450px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* عنوان الموقع (يمكنك تغيير اسم مكتبك هنا) */
+        .title {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+        }
+
+        /* نافذة المخرجات (Console Log) */
+        .console-box {
+            background-color: #2b2c2e;
+            color: #ffffff;
+            font-family: monospace;
+            text-align: left;
+            padding: 15px;
+            border-radius: 10px;
+            height: 200px;
+            overflow-y: auto;
+            direction: ltr;
+            font-size: 14px;
+            line-height: 1.5;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        /* أزرار التحكم بالجيلبريك */
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn {
+            background-color: #0070d1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #00549e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="host-card">
+        <!-- عنوان الموقع واسم مكتبك -->
+        <div class="title" id="siteTitle">ps4-ZLMHEN التهكير للزلم فقط</div>
+
+        <!-- شاشة سجل الثغرة والـ Log -->
+        <div class="console-box" id="console">
+            STAGE: UAF SSV<br>
+            ssv_len: 0x50<br>
+            readyState now: complete<br>
+            readyState now: complete<br>
+            pop 0 came<br>
+            input blur came<br>
+            foo blur came<br>
+            pop 1 came<br>
+            Awaiting Payload...
+        </div>
+
+        <!-- أزرار تشغيل الويبكت أو البايلود -->
+        <div class="btn-container">
+            <button class="btn" onclick="runExploit('9.00')">تشغيل 9.00</button>
+            <button class="btn" onclick="runExploit('11.00')">تشغيل 11.00 / 14.xx</button>
+        </div>
+    </div>
+
+    <script>
+        function runExploit(version) {
+            const consoleBox = document.getElementById('console');
+            consoleBox.innerHTML += `<br>[+] Starting WebKit Exploit for FW ${version}...`;
+            consoleBox.scrollTop = consoleBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>
